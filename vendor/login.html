@@ -11,25 +11,15 @@
 
 <body>
 <div class="d-flex vh-100 justify-content-center align-items-center">
-    <form action="register.php" class="w-25 bg-warning p-4 p-md-10" onsubmit="return validate()" method="post">
-        <h3>vendor Registration</h3>
+    <form action="login.php" class="w-25 bg-warning p-4 p-md-10"  method="post">
+        <h3>vendor Login</h3>
         <input required class="form-control" type="text" placeholder="Enter Username(@gmail.com)" name="uname">
-        <input required class="form-control mt-2" type="password" placeholder="Enter password" name="upass1" id="upass1">
-        <input required class="form-control mt-2" type="password" placeholder="Re-Enter password" name="upass2" id="upass2">
-        <button class="form-control mt-4 btn btn-success" >Register</button>
+        <input required class="form-control mt-2" type="password" placeholder="Enter password" name="upass" id="upass1">
+        <button class="form-control mt-4 btn btn-primary" >Login</button>
 
     </form>
 </div>
 <script>
-    function validate(){
-        if(document.getElementById('upass1').value==document.getElementById('upass2').value){
-            return true;
-        }
-        else{
-            alert('password not matched');
-            return false;
-        }
-    }
 </script>
 </body>
 
