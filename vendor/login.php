@@ -26,6 +26,6 @@ else{
 $row=mysqli_fetch_assoc($sql_cursor);
 $_SESSION['userdata']=$row;
 $_SESSION['login_status']=True;
- header('location:upload.php');
+header('location:upload.php');
 
 ?>

@@ -33,9 +33,27 @@ echo "Hi ";echo $userdata['username'] ;echo" now you can upload your products";
         <div class="text-center">
             <button class="btn btn-danger mt-3">Upload</button>
         </div>
-
-
+        <div class="text-center">
+        <a href="view.php" style="color:white;text-decoration:none;text-center;">view products</a>
+        </div>
     </form>
+    <br>
+    
+    <!-- <form method="post">
+
+<input type="submit" class="bg-danger btn" value="logout" name="logout">
+</form> -->
+
+
+
+<?php
+// if(isset($_POST['logout'])){
+//     echo "<div style='font-size:50px;'>logout sucess</div>";
+//     $_SESSION['login_status']=false;
+//     header('location:login.html');
+// }
+
+?>
 
 </div>
 
