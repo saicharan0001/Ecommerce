@@ -1,12 +1,161 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Signika+Negative&family=Source+Sans+Pro:wght@200;400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: white;
+        }
+
+        .container {
+            margin: 5vw;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        .box:hover{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .box {
+            cursor: pointer;
+            padding: 14px;
+        }
+
+        .box img {
+            width: 220px;
+        }
+
+        .name,
+        .price,
+        .delivery {
+            padding: 4px;
+        }
+
+        .delivery {
+            color: green;
+        }
+
+        .price {
+            font-size: large;
+        }
+
+        .name {
+            color: blue;
+            font-size: large;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-around;
+            padding: 4px;
+        }
+
+        .btns .edit {
+            cursor: pointer;
+            background-color: blue;
+            padding: 6px;
+            color: white;
+            border-radius: 2px;
+            border: none;
+        }
+
+        .btns .delete {
+            cursor: pointer;
+            background-color: red;
+            padding: 6px;
+            color: white;
+            border-radius: 2px;
+            border: none;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png"
+                    alt="">
+
+                </form>
+            <ul>
+                <li><a href="upload.php">upload products</a></li>
+                <li><a href="viewproducts.php">view products</a></li>
+                <li><a href="vieworders.php">view orders</a></li>
+                
+                            <li><a href="../shared/logout.php" class="logout" style="background-color:red; padding:3px;border-radius: 2px;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <div class="box">
+            <img src="images/car body cover.webp" alt="">
+            <div class="name">car body cover</div>
+            <div class="price">$100 </div>
+            <div class="btns">
+                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
+                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
+            </div>
+
+        </div>
+        <div class="box">
+            <img src="images/car body cover.webp" alt="">
+            <div class="name">car body cover</div>
+            <div class="price">$100 </div>
+            <div class="btns">
+                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
+                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/car body cover.webp" alt="">
+            <div class="name">car body cover</div>
+            <div class="price">$100 </div>
+            <div class="btns">
+                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
+                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/car body cover.webp" alt="">
+            <div class="name">car body cover</div>
+            <div class="price">$100 </div>
+            <div class="btns">
+                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
+                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="images/car body cover.webp" alt="">
+            <div class="name">car body cover</div>
+            <div class="price">$100 </div>
+            <div class="btns">
+                <a href="edit.php"><button class="edit"><i class="material-icons">edit</i></button></a>
+                <a href="delete.php"><button class="delete"><i class="material-icons">delete</i></button></a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

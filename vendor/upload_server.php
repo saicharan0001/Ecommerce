@@ -7,20 +7,17 @@ $product_details=$_POST['details'];
 
 session_start();
 $userdata=$_SESSION['userdata'];
-// print_r($userdata);
-
- echo "<br><br><br>";
-echo "<br>";
-// print_r($_FILES);
+//$_FILES is an array of files details;
+// files details is an array of name,tmp_name,create time .....
 $file_name="../shared/images/".date("d-y-m-i-s").$userdata['userid'].$_FILES['pdtimg']['name'];
- echo "<br><br>";
 move_uploaded_file($_FILES['pdtimg']['tmp_name'],$file_name);
-
-$status=mysqli_query($conn,"insert into product(name,price,details,impath) values('$product_name',$product_price,'$product_details','$file_name');");
+$_id=$userdata['userid'];
+$status=mysqli_query($conn,"insert into product(name,price,details,impath,vendorid) values('$product_name',$product_price,'$product_details','$file_name',$_id)");
 if(!$status){
     echo "error in sql";
     echo mysqli_error($conn);
     die;
 }
 echo "insertion succesful";
+header('location:viewproducts.php');
 ?>

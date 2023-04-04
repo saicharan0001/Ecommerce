@@ -4,10 +4,9 @@ if($_SESSION['login_status']==false||isset($_SESSION['login_status'])==0){
 echo "unathorized attempt";
 die;
 }
-// $_SESSION['login_status']=false;
 $userdata=$_SESSION['userdata'];
-echo "Hi ";echo $userdata['username'] ;echo" now you can upload your products";
-
+// echo "Hi ";echo $userdata['username'] ;echo" now you can upload your products";
+include 'navigation.html';
 
 ?>
 
@@ -29,7 +28,6 @@ echo "Hi ";echo $userdata['username'] ;echo" now you can upload your products";
         <textarea class="mt-2 form-control text-danger" name="details" id="" cols="30" rows="5" placeholder="Product Description"></textarea>
 
         <input class="mt-2 form-control" type="file" name="pdtimg">
-
         <div class="text-center">
             <button class="btn btn-danger mt-3">Upload</button>
         </div>

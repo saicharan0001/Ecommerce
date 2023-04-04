@@ -20,7 +20,7 @@ $status=mysqli_query($conn,"insert into vendor_user(username,password) values('$
 
 if($status){
     echo "Registration succesfull";
-    header('location:login.html');
+    header('location:vendorlogin.html');
 }
 else{
     echo "error in sql";
