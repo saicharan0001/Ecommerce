@@ -1,14 +1,6 @@
-
 <html>
-    <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Signika+Negative&family=Source+Sans+Pro:wght@200;400&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="homepage.css">
-    <style>
+<head>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -60,60 +52,66 @@
             padding: 4px;
         }
 
-        .btns .edit {
+        .btns .remove {
             cursor: pointer;
             background-color: blue;
-            padding: 6px;
+            padding: 10px;
             color: white;
             border-radius: 2px;
             border: none;
         }
 
-        .btns .delete {
+        .btns .order {
             cursor: pointer;
             background-color: red;
-            padding: 6px;
+            padding: 10px;
             color: white;
             border-radius: 2px;
             border: none;
         }
+        ._order{
+            background-color: red;
+             height:100%;
+             display: flex;
+             align-items: center;
+        }
     </style>
-    </head>
-    <body>
-
-    </body>
+</head>
+<body>  
+</body>
 </html>
 
 
-<?php
-include '../shared/connection.php';
+<?php 
+
 session_start();
-if($_SESSION['login_status']==false||isset($_SESSION['login_status'])==0){
+if($_SESSION['login_status_client']==false||isset($_SESSION['login_status_client'])==0){
 echo "unathorized attempt";
 die;
 }
-$userdata=$_SESSION['userdata'];
-$id=$userdata['userid'];
-include 'navigation.html';
-$sql_cursor=mysqli_query($conn,"select * from product where vendorid=$id");
+include '../shared/connection.php';
+$userdata=$_SESSION['clientdata'];
+include 'navbar.html';
+$userid=$userdata['userid'];
+
+$sql_cursor=mysqli_query($conn,"select * from manage_order where userid=$userid");
 echo "<div class='container'>";
 while($rows=mysqli_fetch_assoc($sql_cursor)){
-    $name=$rows['name'];
-    $price=$rows['price'];
-    $details=$rows['details'];
-    $impath=$rows['impath'];
     $pid=$rows['pid'];
+    $item=mysqli_fetch_assoc(mysqli_query($conn,"select * from product where pid = $pid"));
+    $name=$item['name'];
+    $price=$item['price'];
+    $impath=$item['impath'];
     echo "
     <div class='box'>
             <img src='$impath'>
             <div class='name'>$name</div>
             <div class='price'>$$price </div>
             <div class='btns'>
-                <a href='edit.php?pid=$pid'><button class='edit'><i class='material-icons'>edit</i></button></a>
-                <a href='delete.php?pid=$pid'><button class='delete'><i class='material-icons'>delete</i></button></a>
+                <a href=cancelorder.php?pid=$pid><button class='remove'>cancel order</button></a>
             </div>
-            </div>
-    ";
+            </div>";
 }
 echo "</div>";
+
 ?>

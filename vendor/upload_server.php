@@ -4,6 +4,7 @@ include '../shared/connection.php';
 $product_name=$_POST['name'];
 $product_price=$_POST['price'];
 $product_details=$_POST['details'];
+$product_category=$_POST['category'];
 
 session_start();
 $userdata=$_SESSION['userdata'];
@@ -12,7 +13,7 @@ $userdata=$_SESSION['userdata'];
 $file_name="../shared/images/".date("d-y-m-i-s").$userdata['userid'].$_FILES['pdtimg']['name'];
 move_uploaded_file($_FILES['pdtimg']['tmp_name'],$file_name);
 $_id=$userdata['userid'];
-$status=mysqli_query($conn,"insert into product(name,price,details,impath,vendorid) values('$product_name',$product_price,'$product_details','$file_name',$_id)");
+$status=mysqli_query($conn,"insert into product(name,price,details,category,impath,vendorid) values('$product_name',$product_price,'$product_details','$product_category','$file_name',$_id)");
 if(!$status){
     echo "error in sql";
     echo mysqli_error($conn);
