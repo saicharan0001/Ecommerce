@@ -8,10 +8,10 @@ die;
 include '../shared/connection.php';
 $userdata=$_SESSION['clientdata'];
 $userid=$userdata['userid'];
-$pid=$_GET['pid'];
+$orderid=$_GET['orderid'];
 // echo $userid,"<br>";
 // echo $pid,"<br>";
-$status=mysqli_query($conn,"delete from manage_order where userid =$userid and pid=$pid");
+$status=mysqli_query($conn,"delete from manage_order where userid =$userid and orderid=$orderid");
 if(!$status){
     echo "error in database";
     echo mysqli_error($conn);

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,154 +6,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Signika+Negative&family=Source+Sans+Pro:wght@200;400&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="homepage.css">
     <style>
         * {
             margin: 0;
             padding: 0;
-        }
-        body{
-            background-color: white;
-        }
-
-        .container {
-            margin: 5vw;
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
             font-family: 'Source Sans Pro', sans-serif;
         }
-        .box:hover{
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
 
-        .box {
-            cursor: pointer;
-            padding: 14px;
-        }
-
-        .box img {
-            width: 220px;
-        }
-
-        .name,
-        .price,
-        .delivery {
-            padding: 4px;
-        }
-
-        .delivery {
-            color: green;
-        }
-
-        .price {
-            font-size: large;
-        }
-
-        .name {
-            color: blue;
-            font-size: large;
-        }
-
-        .btns {
+        .viewcart {
             display: flex;
             justify-content: space-around;
-            padding: 4px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin:5vw;
+            padding:2vw;
+            height:fit-content;
         }
-
-        .btns .edit {
-            cursor: pointer;
-            background-color: blue;
+        .viewcart:hover{
+            box-shadow: 0 0 10px 10px rgba(226, 231, 232, 1);
+        }
+        .leftpart{
+            width: 50%;
+            margin:20px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .leftpart img{
+            width: 175px;
+        }
+        .rightpart{
+            width: 50%;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .name,.price{
+            margin: 10px;
+        }
+        .delivered .btn{
+            color:white;
             padding: 6px;
-            color: white;
-            border-radius: 2px;
             border: none;
-        }
-
-        .btns .delete {
-            cursor: pointer;
-            background-color: red;
-            padding: 6px;
-            color: white;
             border-radius: 2px;
-            border: none;
+            background-color: rgb(217, 83, 79);
         }
+@media screen and (max-width:600px){
+    .leftpart .name,.price{
+        margin:2px 0px;
+    }
+    .leftpart img{
+        border:2px solid red;
+        width:175px;
+    }
+.viewcart{
+    flex-direction: column;
+    align-items: center;
+}
+.leftpart{
+    width:90%;
+    margin:10px 0px;
+}
+.rightpart{
+    width:90%;
+}
+.pad{
+    padding:2px 0px;
+}
+}
     </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="images/logo.png"
-                    alt="">
+    <div class="viewcart">
 
-                </form>
-            <ul>
-                <li><a href="upload.php">upload products</a></li>
-                <li><a href="viewproducts.php">view products</a></li>
-                <li><a href="vieworders.php">view orders</a></li>
-                
-                            <li><a href="../shared/logout.php" class="logout" style="background-color:red; padding:3px;border-radius: 2px;">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <div class="container">
-        <div class="box">
-            <img src="images/car body cover.webp" alt="">
-            <div class="name">car body cover</div>
-            <div class="price">$100 </div>
-            <div class="btns">
-                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
-                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
-            </div>
-
+        <div class="leftpart">
+            <img src="images/car body cover.webp" >
+            <div class="name"><b>Car cover</b></div>
+            <div class="price"><b style="color:blue;">$100</b></div>
         </div>
-        <div class="box">
-            <img src="images/car body cover.webp" alt="">
-            <div class="name">car body cover</div>
-            <div class="price">$100 </div>
-            <div class="btns">
-                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
-                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
-            </div>
+       
+        <div class="rightpart">
+            <div class="details pad"><h3 style="color:green">Details</h3></div><hr>
+            <div class="detail_product">High end laptop 8GB ram 256 ssd storage with 1 year gurantee</div>
+            <div class="delivered pad"><a href="orderdetails.php?pid=$pid"><button class="btn">order now</button></a></div>
+            <div class="delivered pad"><a href="orderdetails.php?pid=$pid"><button class="btn">order now</button></a></div>
         </div>
-        <div class="box">
-            <img src="images/car body cover.webp" alt="">
-            <div class="name">car body cover</div>
-            <div class="price">$100 </div>
-            <div class="btns">
-                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
-                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="images/car body cover.webp" alt="">
-            <div class="name">car body cover</div>
-            <div class="price">$100 </div>
-            <div class="btns">
-                <a href=""><button class="edit"><i class="material-icons">edit</i></button></a>
-                <a href=""><button class="delete"><i class="material-icons">delete</i></button></a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="images/car body cover.webp" alt="">
-            <div class="name">car body cover</div>
-            <div class="price">$100 </div>
-            <div class="btns">
-                <a href="edit.php"><button class="edit"><i class="material-icons">edit</i></button></a>
-                <a href="delete.php"><button class="delete"><i class="material-icons">delete</i></button></a>
-            </div>
-        </div>
+        
     </div>
+
 </body>
 
 </html>

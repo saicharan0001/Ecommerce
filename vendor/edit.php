@@ -24,8 +24,9 @@ include 'navigation.html';
 <body>
 
 <div class="d-flex justify-content-center align-items-center vh-100">
-
-    <form action="upload_server.php" class="bg-primary p-3" enctype="multipart/form-data" method="post">
+<?php echo"
+    <form action='edit_server.php?pid=$pid' class='bg-primary p-3' enctype='multipart/form-data' method='post'>
+    "?>
         <h3 class="text-center text-white">Upload Product</h3>
 
         <input class="mt-2 form-control text-danger" type="text" name="name" value=<?php echo "$p_name";?>>
@@ -36,7 +37,7 @@ include 'navigation.html';
 
         <input class="mt-2 form-control" type="file" name="pdtimg">
         <div class="text-center">
-            <button class="btn btn-danger mt-3">Upload</button>
+            <button class="btn btn-danger mt-3" type="submit">Upload</button>
         </div>
     </form>
     <br>

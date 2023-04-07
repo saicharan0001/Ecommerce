@@ -5,7 +5,7 @@ session_start();
 $_SESSION['login_status_client']=false;
 $uname=$_POST['uname'];
 $upass=$_POST['upass1'];
-
+$Fullname=$_POST['Fullname'];
 $hash=md5($upass);
 
 $sql_cursor=mysqli_query($conn,"select * from client_user where username='$uname' ");
@@ -16,7 +16,7 @@ if($count>0){
     die;
 }
 
-$status=mysqli_query($conn,"insert into client_user(username,password) values('$uname','$hash')");
+$status=mysqli_query($conn,"insert into client_user(username,password,Fullname) values('$uname','$hash','$Fullname')");
 
 if($status){
     echo "Registration succesfull";

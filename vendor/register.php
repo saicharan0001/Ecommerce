@@ -5,7 +5,7 @@ session_start();
 $_SESSION['login_status']=false;
 $uname=$_POST['uname'];
 $upass=$_POST['upass1'];
-
+$Fullname=$_POST['Fullname'];
 $hash=md5($upass);
 
 $sql_cursor=mysqli_query($conn,"select * from vendor_user where username='$uname' ");
@@ -16,7 +16,7 @@ if($count>0){
     die;
 }
 
-$status=mysqli_query($conn,"insert into vendor_user(username,password) values('$uname','$hash')");
+$status=mysqli_query($conn,"insert into vendor_user(username,password,Fullname) values('$uname','$hash','')");
 
 if($status){
     echo "Registration succesfull";

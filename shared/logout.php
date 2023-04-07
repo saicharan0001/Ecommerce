@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_abort();
-header('location:client/');
+header('location:../client/clientlogin.html');
 ?>
