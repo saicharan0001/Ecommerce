@@ -15,59 +15,59 @@ include 'navbar.html';
     <link rel="stylesheet" href="homepage.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-
-            * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Source Sans Pro', sans-serif;
-
-        }
-        .categories_2 {
-            margin: 10px;
-            border: 2px solid gainsboro;
-            display: flex;
-            /* flex-wrap: wrap; */
-            align-items: center;
-            justify-content: space-between;
-            background-color: white;
-            border-radius: 0.3vh;
-            overflow-x: auto;
-        }
-
-        .categories_2 img {
-            height: 40%;
-            width: 12vw;
-            margin: 20px;
-        }
-
-        .btn_2 {
-            background-color: #2874f0;
-            margin-left: 10px;
-            color: white;
-            /* font-weight:900; */
-            font-size: medium;
+        * {
+            margin: 0;
+            padding: 0;
             font-family: 'Source Sans Pro', sans-serif;
-            padding: 4px 10px;
+        }
+        .main_item_display{
+            display: flex;
+            margin:1vw;
+           height:fit-content;
+           overflow-x: auto;
+          background-color: white;
         }
 
-        .btn_2:hover {
-            font-weight: 900;
+        .item_display {
+            display: flex;
+            flex-direction: column;
+            /* overflow:hidden; */
+            justify-content: space-between;
+            padding:30px 50px;
+            border-right: 2px solid rgba(220, 220, 220, 0.47);
         }
 
-        .linkpara {
-            text-align: center;
-            
+        .textdetails {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img img {
+            width: 200px;
+        }
+        .textdetails{
+            align-items: center;
+        }
+        .name,.price,.free_delivery{
+            padding: 3px;
         }
         .cart{
-            background-color:rgb(0, 123, 255);
-            padding:2px;
-            margin-top:5px;
+            padding:10px;
+            color:white;
+            background-color: blue;
             border:none;
-            border-radius:2px;
+            border-radius: 2px;
         }
+      .btn_2{
+        border:none;
+        border-radius:2px;
+      }
+
+
         ._home{
             background-color: red; height:100%;display: flex;align-items: center;
         }
+        
     </style>
 </head>
 
@@ -130,12 +130,12 @@ include 'navbar.html';
 
     <?php
 
-   $sql_cursor=mysqli_query($conn,"select * from product where category='electronics';");
+   $sql_cursor=mysqli_query($conn,"select * from product where category='electronics' limit 10;");
    
    echo "<h2 style='text-align: center; color: black;font-family:  'Source Sans Pro', sans-serif;'>electronics
-   <button class='btn_2'>View All</button>
+   <a href='viewcategories.php?cat=electronics'><button class='btn_2'>View All</button></a>
     </h2>";
-    echo "<div class='categories_2'>";
+    echo "<div class='main_item_display'>";
    while($rows=mysqli_fetch_assoc($sql_cursor)){
        $name=$rows['name'];
        $price=$rows['price'];
@@ -144,23 +144,24 @@ include 'navbar.html';
        $pid=$rows['pid'];
    
    
-      echo "<div class='item'>
-      <a href='s.html'><img src='$impath'>
-          <p class='linkpara'>$name<br>$price<br>
-              <l style='color:green'>Min. 50% Off</l><br>
-              <l><a href='addcart.php?pid=$pid'><button class ='cart'>Add cart</button><a></l>
-          </p>
-      </a>
+      echo "<div class='item_display'>
+      <div class='img'><img src='$impath'></div>
+      <div class='textdetails' style='font-weight:bold;'>
+          <div class='name' >$name</div>
+          <div class='price' style='color:red;'>₹1$price</div>
+          <div class='free_delivery' style='color:green;'>Free delivery</div>
+          <a href='addcart.php?pid=$pid'><button class='cart' style='padding: 10px;'>Add cart</button><a></a>
+      </div>
   </div>";
 }
 echo "</div>";
 
-   $sql_cursor=mysqli_query($conn,"select * from product where category = 'food';");
+   $sql_cursor=mysqli_query($conn,"select * from product where category = 'food' limit 10;");
    
    echo "<h2 style='text-align: center; color: black;font-family:  'Source Sans Pro', sans-serif;'>food
-   <button class='btn_2'>View All</button>
+   <a href='viewcategories.php?cat=food'><button class='btn_2'>View All</button></a>
     </h2>";
-    echo "<div class='categories_2'>";
+    echo "<div class='main_item_display'>";
    while($rows=mysqli_fetch_assoc($sql_cursor)){
        $name=$rows['name'];
        $price=$rows['price'];
@@ -169,23 +170,24 @@ echo "</div>";
        $pid=$rows['pid'];
    
    
-      echo "<div class='item'>
-      <a href='s.html'><img src='$impath'>
-          <p class='linkpara'>$name<br>$price<br>
-              <l style='color:green'>Min. 50% Off</l><br>
-              <l><a href='addcart.php?pid=$pid'><button class ='cart'>Add cart</button><a></l>
-          </p>
-      </a>
-  </div>";
-}
-echo "</div>";
+       echo "<div class='item_display'>
+       <div class='img'><img src='$impath'></div>
+       <div class='textdetails' style='font-weight:bold;'>
+           <div class='name' >$name</div>
+           <div class='price' style='color:red;'>₹1$price</div>
+           <div class='free_delivery' style='color:green;'>Free delivery</div>
+           <a href='addcart.php?pid=$pid'><button class='cart' style='padding: 10px;'>Add cart</button><a></a>
+       </div>
+   </div>";
+ }
+ echo "</div>";
 
-   $sql_cursor=mysqli_query($conn,"select * from product where category='fashion';");
+   $sql_cursor=mysqli_query($conn,"select * from product where category='fashion' limit 10;");
    
    echo "<h2 style='text-align: center; color: black;font-family:  'Source Sans Pro', sans-serif;'>fashion
-   <button class='btn_2'>View All</button>
+   <a href='viewcategories.php?cat=fashion'><button class='btn_2'>View All</button></a>
     </h2>";
-    echo "<div class='categories_2'>";
+    echo "<div class='main_item_display'>";
    while($rows=mysqli_fetch_assoc($sql_cursor)){
        $name=$rows['name'];
        $price=$rows['price'];
@@ -194,23 +196,23 @@ echo "</div>";
        $pid=$rows['pid'];
    
    
-      echo "<div class='item'>
-      <a href='s.html'><img src='$impath'>
-          <p class='linkpara'>$name<br>$price<br>
-              <l style='color:green'>Min. 50% Off</l><br>
-              <l><a href='addcart.php?pid=$pid'><button class ='cart'>Add cart</button><a></l>
-          </p>
-      </a>
-  </div>";
-}
-echo "</div>";
-
-   $sql_cursor=mysqli_query($conn,"select * from product where category='gym';");
+       echo "<div class='item_display'>
+       <div class='img'><img src='$impath'></div>
+       <div class='textdetails' style='font-weight:bold;'>
+           <div class='name' >$name</div>
+           <div class='price' style='color:red;'>₹1$price</div>
+           <div class='free_delivery' style='color:green;'>Free delivery</div>
+           <a href='addcart.php?pid=$pid'><button class='cart' style='padding: 10px;'>Add cart</button><a></a>
+       </div>
+   </div>";
+ }
+ echo "</div>";
+   $sql_cursor=mysqli_query($conn,"select * from product where category='gym' limit 10");
    
    echo "<h2 style='text-align: center; color: black;font-family:  'Source Sans Pro', sans-serif;'>gym
-   <button class='btn_2'>View All</button>
+   <a href='viewcategories.php?cat=gym'><button class='btn_2'>View All</button></a>
     </h2>";
-    echo "<div class='categories_2'>";
+    echo "<div class='main_item_display'>";
    while($rows=mysqli_fetch_assoc($sql_cursor)){
        $name=$rows['name'];
        $price=$rows['price'];
@@ -219,17 +221,17 @@ echo "</div>";
        $pid=$rows['pid'];
    
    
-      echo "<div class='item'>
-      <a href='s.html'><img src='$impath'>
-          <p class='linkpara'>$name<br>$price<br>
-              <l style='color:green'>Min. 50% Off</l><br>
-              <l><a href='addcart.php?pid=$pid'><button class ='cart'>Add cart</button><a></l>
-          </p>
-      </a>
-  </div>";
-}
-echo "</div>";
-
+       echo "<div class='item_display'>
+       <div class='img'><img src='$impath'></div>
+       <div class='textdetails' style='font-weight:bold;'>
+           <div class='name' >$name</div>
+           <div class='price' style='color:red;'>₹1$price</div>
+           <div class='free_delivery' style='color:green;'>Free delivery</div>
+           <a href='addcart.php?pid=$pid'><button class='cart' style='padding: 10px;'>Add cart</button><a></a>
+       </div>
+   </div>";
+ }
+ echo "</div>";
 
 
 ?>

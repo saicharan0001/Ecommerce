@@ -4,7 +4,8 @@ include '../shared/connection.php';
 
 $uname=$_POST['uname'];
 $upass=$_POST['upass'];
-
+// echo $uname;
+// echo $upass;
 $hash=md5($upass);
 
 

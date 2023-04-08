@@ -14,8 +14,8 @@ body {
 
 header {
     height: 10vh;
-    /* background-color: #2874f0; */
-    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+    background-color: #2874f0;
+    /* background: -webkit-linear-gradient(left, #a445b2, #fa4299); */
     display: flex;
     overflow-x: auto;
     align-items: center;

@@ -16,7 +16,7 @@ if($count>0){
     die;
 }
 
-$status=mysqli_query($conn,"insert into vendor_user(username,password,Fullname) values('$uname','$hash','')");
+$status=mysqli_query($conn,"insert into vendor_user(username,password,Fullname) values('$uname','$hash','$Fullname')");
 
 if($status){
     echo "Registration succesfull";
